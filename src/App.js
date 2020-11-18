@@ -1,19 +1,18 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+import { Switch, Route } from 'react-router-dom'
+import HomePage from './pages/homepage/homepage.jsx'
+import Information from './pages/information/information.jsx'
 
 import './App.css'
 
 function App() {
-  const [total, setTotal] = useState(0)
-  useEffect(() => {
-    async function fetchData() {
-      const response = await axios.get('https://pokeapi.co/api/v2/pokemon')
-      setTotal(response.data.count)
-    }
-    fetchData()
-  }, [])
-
-  return <div className='App'>{total}</div>
+  return (
+    <div>
+      <Switch>
+        <Route exact path='/' component={HomePage} />
+        <Route path='/1' component={Information} />
+      </Switch>
+    </div>
+  )
 }
 
 export default App
