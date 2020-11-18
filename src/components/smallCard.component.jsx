@@ -1,5 +1,6 @@
-import { Box, Image, Badge } from '@chakra-ui/react'
+import { Box, Image, Text } from '@chakra-ui/react'
 export default function SmallCard({ name, img }) {
+  name = name.toUpperCase()
   return (
     <Box as='button' p='5' width='150px' borderWidth='1px' margin='10px'>
       <Image
@@ -9,9 +10,15 @@ export default function SmallCard({ name, img }) {
         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${img}.png`}
       />
 
-      <Badge alignItems='center' colorScheme='pink'>
+      <Text
+        bgColor='pink'
+        alignItems='center'
+        whiteSpace='nowrap'
+        textOverflow='ellipsis'
+        overflow='hidden'
+      >
         {name}
-      </Badge>
+      </Text>
     </Box>
   )
 }

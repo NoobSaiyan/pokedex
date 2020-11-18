@@ -9,7 +9,7 @@ const HomePage = () => {
   useEffect(() => {
     async function fetchResults() {
       const response = await axios.get(
-        'https://pokeapi.co/api/v2/pokemon?offset=0&limit=1050'
+        'https://pokeapi.co/api/v2/pokemon?offset=0&limit=20'
       )
       setResults(response.data.results)
     }
@@ -24,8 +24,8 @@ const HomePage = () => {
           let id = arr[arr.length - 2]
 
           return (
-            <Link to={`/${id}`}>
-              <SmallCard className='card' key={id} name={name} img={id} />
+            <Link key={url} to={`/${id}`}>
+              <SmallCard className='card' name={name} img={id} />
             </Link>
           )
         })}
