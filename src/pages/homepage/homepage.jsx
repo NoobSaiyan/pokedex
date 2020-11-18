@@ -9,7 +9,7 @@ const HomePage = () => {
   useEffect(() => {
     async function fetchResults() {
       const response = await axios.get(
-        'https://pokeapi.co/api/v2/pokemon?offset=0&limit=20'
+        'https://pokeapi.co/api/v2/pokemon?offset=0&limit=151'
       )
       setResults(response.data.results)
     }
